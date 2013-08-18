@@ -30,6 +30,8 @@ function! s:reST_complete()
 			return <SID>image_complete()
 		endif
 	endfor
+
+	return "\t"
 endfunction
 
 function! Test()
