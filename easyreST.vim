@@ -9,6 +9,11 @@ let g:reST_header = {
 			\ "h2": "-"
 			\ }
 
+let g:reST_image = [
+			\ "img",
+			\ "image",
+			\ ]
+
 inoremap <silent> <buffer> <Tab> 
 		\<C-R>=<SID>reST_complete()<CR>
 
@@ -17,6 +22,12 @@ function! s:reST_complete()
 	for s:keyword in keys(g:reST_header)
 		if s:line == s:keyword
 			return <SID>header_complete(g:reST_header[s:keyword])
+		endif
+	endfor
+
+	for s:keyword in g:reST_image
+		if s:line == s:keyword
+			return <SID>image_complete()
 		endif
 	endfor
 endfunction
@@ -59,5 +70,22 @@ function! s:header_complete(symbal)
 	call setline(line('.'), "")
 	let s:pre_line_len = strdisplaywidth(getline(line('.') - 1))
 	return repeat(a:symbal, s:pre_line_len)
+endfunction
+
+function! s:image_complete()
+	call setline(line('.'), "")
+	let s:line_num = line('.')
+	let s:image_text =
+				\".. image:: \n".
+				\"   :alt: \n".
+				\"   :height: \n".
+				\"   :width: \n".
+				\"   :scale: \n".
+				\"   :align: \n".
+				\"   :target: \n"
+
+	put! = s:image_text
+	call cursor(s:line_num, strwidth(getline(s:line_num)) + 1)
+	return ""
 endfunction
 
