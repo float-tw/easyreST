@@ -6,7 +6,8 @@ endif
 
 let g:reST_header = {
 			\ "h1": "=",
-			\ "h2": "-"
+			\ "h2": "-",
+			\ "h3": "^"
 			\ }
 
 let g:reST_image = [
