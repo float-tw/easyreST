@@ -2,6 +2,9 @@
 " Author:		float
 " HomePage:		https://github.com/float-tw/easyreST
 " Readme:		https://github.com/float-tw/easyreST/blob/master/README.rst
+" License:		CC BY-SA
+" 				http://creativecommons.org/licenses/by-sa/3.0/tw/legalcode
+" 				http://creativecommons.org/licenses/by-sa/3.0/legalcode
 " Version:		Beta
 
 " check python support
