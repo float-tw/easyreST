@@ -1,3 +1,9 @@
+" easyreST		is a reStructuredText auto-complete plugin
+" Author:		float
+" HomePage:		https://github.com/float-tw/easyreST
+" Readme:		https://github.com/float-tw/easyreST/blob/master/README.rst
+" Version:		Beta
+
 " check python support
 if !has('python')
 echo "Error: Required vim compiled with +python"
