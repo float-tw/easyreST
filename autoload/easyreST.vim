@@ -29,6 +29,11 @@ inoremap <silent> <buffer> <Tab>
 
 function! s:reST_complete()
 	let s:line = getline(line('.'))
+
+	if s:line =~ "\\([-=`:'\"~^_*+#<>]\\)\\1"
+		return <SID>header_complete(s:line[0])
+	endif
+
 	for s:keyword in keys(g:reST_header)
 		if s:line == s:keyword
 			return <SID>header_complete(g:reST_header[s:keyword])
