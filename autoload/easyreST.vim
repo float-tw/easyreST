@@ -24,10 +24,21 @@ let g:reST_image = [
 			\ "image",
 			\ ]
 
-inoremap <silent> <buffer> <Tab> 
-		\<C-R>=<SID>reST_complete()<CR>
+inoremap <silent> <buffer> <Tab>
+			\ <C-R>=<SID>reST_complete()<CR>
+
+nnoremap <silent> <buffer> <Tab>
+			\ :call <SID>reST_complete()<CR>
 
 function! s:reST_complete()
+
+	" normal mode
+	if mode() == 'n'
+		call <SID>link_complete()
+		return
+	endif
+
+	" insert mode
 	let s:line = getline(line('.'))
 
 	if s:line =~ "\\([-=`:'\"~^_*+#<>]\\)\\1"
