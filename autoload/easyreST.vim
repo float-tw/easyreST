@@ -13,6 +13,8 @@ echo "Error: Required vim compiled with +python"
 	finish
 endif
 
+autocmd BufNewFile,BufRead *.rst call <SID>tab_mapping()
+
 let g:reST_header = {
 			\ "h1": "=",
 			\ "h2": "-",
@@ -24,11 +26,14 @@ let g:reST_image = [
 			\ "image",
 			\ ]
 
-inoremap <silent> <buffer> <Tab>
-			\ <C-R>=<SID>reST_complete()<CR>
+function! s:tab_mapping()
 
-nnoremap <silent> <buffer> <Tab>
-			\ :call <SID>reST_complete()<CR>
+	inoremap <silent> <buffer> <Tab>
+				\ <C-R>=<SID>reST_complete()<CR>
+
+	nnoremap <silent> <buffer> <Tab>
+				\ :call <SID>reST_complete()<CR>
+endfunction
 
 function! s:reST_complete()
 
