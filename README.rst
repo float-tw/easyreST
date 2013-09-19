@@ -4,6 +4,9 @@ rasyreST
 Demo
 ----
 
+.. image:: http://raw.github.com/float-tw/easyreST/master/easyreST.gif
+
+
 Licenses
 --------
 
