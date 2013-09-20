@@ -4,7 +4,7 @@ rasyreST
 Demo
 ----
 
-.. image:: http://raw.github.com/float-tw/easyreST/master/easyreST.gif
+.. image:: https://github.com/float-tw/easyreST/raw/master/easyreST.gif
 
 
 Licenses
