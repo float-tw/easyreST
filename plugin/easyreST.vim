@@ -98,7 +98,7 @@ endfunction
 function! s:link_complete()
 	let s:line = getline('.')
 	let s:cursor_col = col('.')
-	let s:link_regex = '`\(.*\)`_'			" `hyper link`_
+	let s:link_regex = '`\([^`]*\)`_'			" `hyper link`_
 	let s:target_regex = '\.\.\ _\(.*\)\ :'	" .. _hyper link: url
 
 	let s:link_start = match(s:line, s:link_regex)
@@ -108,7 +108,7 @@ function! s:link_complete()
 	while s:link_start != -1
 		" cursor at link
 		if s:link_start <= s:cursor_col && s:link_end + 1 >= s:cursor_col
-			let s:target_line = search(s:target_regex, 'W')
+			let s:target_line = search('\.\.\ _' . s:link_name[1] . '\ :', 'W')
 			if s:target_line == 0
 				call append(line('.'), '.. _' . s:link_name[1] . ' : ')
 				call append(line('.'), '')
